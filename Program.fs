@@ -1,4 +1,10 @@
-﻿open System
+﻿// This code demonstrates how to unfold a 'T seq seq into am interleaved seq,
+// e.g. seq{ {11; 12; 13}; {21; 22; 23}; {31; 32} }
+// to {11; 21; 31;   12; 22; 32;   13; 23 }
+// unfold1 is not tail-rec;
+// unfold2 is tail-rec
+
+open System
 
 let rec unfold1 (ss:'T seq seq) : 'T seq =
     if Seq.isEmpty ss then // no in, no out
